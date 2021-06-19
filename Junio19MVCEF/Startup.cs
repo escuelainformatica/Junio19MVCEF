@@ -16,6 +16,7 @@ namespace Junio19MVCEF
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -28,12 +29,21 @@ namespace Junio19MVCEF
 
             app.UseRouting();
 
+            // Cambiar la enrutacion por esta de aqui:
+           
+            // http://localhost:45374/Compras/Insertar/20
+            // llama al controlador llamado ComprasController
+            // dentro del controlador, va  a llamar al metodo Insertar.
+            // http://localhost:45374/Compras/
+            // Llamar al controlador llamado Compras y a la funcion Index
+            // http://localhost:45374
+            // Controlador llamado HomeController y la funcion Index
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
