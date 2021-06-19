@@ -1,0 +1,70 @@
+﻿@using Junio19MVCEF.Models
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!-- https://www.tablesgenerator.com/html_tables  -->
+
+<style type="text/css">
+    .tg {
+        border-collapse: collapse;
+        border-color: #9ABAD9;
+        border-spacing: 0;
+    }
+
+        .tg td {
+            background-color: #EBF5FF;
+            border-color: #9ABAD9;
+            border-style: solid;
+            border-width: 0px;
+            color: #444;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
+        }
+
+        .tg th {
+            background-color: #409cff;
+            border-color: #9ABAD9;
+            border-style: solid;
+            border-width: 0px;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
+        }
+
+        .tg .tg-0lax {
+            text-align: left;
+            vertical-align: top
+        }
+</style>
+
+<h1>Esta es la tabla</h1>
+
+<table class="tg">
+    <thead>
+        <tr>
+            <th class="tg-0lax">Id</th>
+            <th class="tg-0lax">Nombre</th>
+            <th class="tg-0lax">Descripcion</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Parte fila in ViewBag.partes)
+        {
+            <tr>
+                <td class="tg-0lax">@fila.IdParte</td>
+                <td class="tg-0lax">@fila.Nombre</td>
+                <td class="tg-0lax">@fila.Descripcion</td>
+            </tr>
+        }
+    </tbody>
+</table>

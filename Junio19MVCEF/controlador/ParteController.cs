@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Junio19MVCEF.Models;
+using Junio19MVCEF.repo;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +23,22 @@ namespace Junio19MVCEF.controlador
         // http://localhost:45374/Parte/Ejemplo
         public IActionResult Ejemplo()
         {
+            // crear la vista: boton derecho en la vista
+            // -> crear vista.
+            // --> la vista tiene que tener el mismo nombre que el metodo.
+            return View();
+        }
+
+        // http://localhost:45374/Parte/Tabla
+
+
+        public IActionResult Tabla()
+        {
+            List<Parte> partes=ParteRepo.ListarTodo();
+
+            ViewBag.partes=partes;
+            ViewData["partes"]=partes;
+            // Modelo
 
             return View();
         }

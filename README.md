@@ -39,3 +39,32 @@ En la función Configure, indicar como se va a llamar el controlador
                 pattern: "{controller=Home}/{action=Index}/{id?}");
         });
 ```
+## Agregar Entity Framework Core
+
+Con Nuget (Package Manager Console)
+
+```
+Install-Package Microsoft.EntityFrameworkCore -Version 6.0.0-preview.5.21301.9
+Install-Package Microsoft.EntityFrameworkCore.Relational -Version 6.0.0-preview.5.21301.9
+Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version 6.0.0-preview.5.21301.9
+Install-Package Microsoft.EntityFrameworkCore.Tools -Version 6.0.0-preview.5.21301.9
+```
+
+## Scaffold
+
+Usando el Package Manager Console, cambiando lo siguiente:
+
+* Data Source : La instancia donde esta la base de datos
+* Initial Catalog: Nuestra base de datos
+* Microsoft.EntityFrameworkCore.SqlServer : Si vamos a usar sql server
+* -OutputDir Models : la carpeta que se va a generar
+
+```
+Scaffold-DbContext "Data Source=(local)\SQLEXPRESS;Initial Catalog=BasePartes;Integrated Security=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models 
+```
+
+Puede usarse
+
+* -force : sobreescribe el codigo ya generado
+* -dataannotations: Use las anotaciones en vez de agregar la definicion en la clase de contexto
+
