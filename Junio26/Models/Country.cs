@@ -19,14 +19,19 @@ namespace Junio26.Models
         [Key]
         [Column("country_id")]
         public short CountryId { get; set; }
+
+
         [Required]
         [Column("country")]
         [StringLength(50)]
         public string Country1 { get; set; }
+
+
         [Column("last_update", TypeName = "datetime")]
         public DateTime? LastUpdate { get; set; }
 
         [InverseProperty(nameof(City.Country))]
         public virtual ICollection<City> Cities { get; set; }
+
     }
 }

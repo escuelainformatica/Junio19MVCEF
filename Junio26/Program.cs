@@ -2,6 +2,7 @@
 using Junio26.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Junio26
@@ -21,11 +22,22 @@ namespace Junio26
                 .Actors // <-- tabla actor y el modelo Actor (lista de actores)
                 .Where( actor => actor.FirstName=="KEVIN") //  => operacion lambda  alias => (donde) ....
                 .ToList();
-
-            var ciudades=contexto
+            /* select *
+            	from city
+	                inner join country on city.country_id=country.country_id
+            */
+            List<City> ciudades=contexto
                 .Cities // <-- ciudades 
                 .Include( c => c.Country) // <-- que incluya dentro de cada ciudad el pais
+                .Where( c => c.Country.Country1=="Chile") 
                 .ToList(); // <-- lista de ciudades (que incluye el pais)
+
+
+            List<Country> paises = contexto
+                .Countries // <-- paises 
+                .Include(pais => pais.Cities) // <-- incluir las ciudades por cada pais
+                .ToList(); // <-- lista de paises
+
 
 
 
