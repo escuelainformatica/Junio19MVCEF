@@ -28,14 +28,12 @@ namespace Junio19MVCEF.controlador
             // --> la vista tiene que tener el mismo nombre que el metodo.
             return View();
         }
-
         // http://localhost:45374/Parte/Tabla
 
 
         public IActionResult Tabla()
         {
             List<Parte> partes=ParteRepo.ListarTodo();
-
             ViewBag.partes=partes;
             ViewData["partes"]=partes;
             // Modelo

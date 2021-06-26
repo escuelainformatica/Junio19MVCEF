@@ -9,7 +9,7 @@ namespace Junio19MVCEF.repo
     // OOP
     // SRP.
 
-    // ParteRepo, ParteDAO (Data Access Objet), ParteBase...
+    // ParteRepo, ParteDAO (Data Access Object), ParteBase...
 
     // Clase de servicio.
     // esta clase de servicio tiene todas las funciones de la base de datos.
